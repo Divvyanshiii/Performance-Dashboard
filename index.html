@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <title>Dashboard</title>
+    
+</head>
+<body class="text-gray-800 font-inter">
+    
+    <!-- start: Sidebar -->
+    <div class="fixed left-0 top-0 w-64 h-full bg-gray-900 p-4 z-50 sidebar-menu transition-transform">
+        <a href="#" class="flex items-center pb-4 border-b border-b-gray-800 mt-5">
+            <img src="https://placehold.co/32x32" alt="" class="w-8 h-8 rounded object-cover">
+            <div class="ml-3">
+                <span class="text-xl font-bold text-white">S.M.A.R.T</span>
+                <span class="text-xs text-gray-300 inline-block">Student Management and Recruitment Tool</span>
+            </div>
+        </a>
+        <ul class="mt-10">
+            <!-- HOME -->
+            <li class="mb-5 group active">
+                <a href="#" id="homeBtn" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <i class="ri-home-2-line mr-3 text-lg"></i>
+                    <span class="text-sm">Dashboard</span>
+                </a>
+            </li>
+
+            <!-- UPLOAD -->
+            <li class="mb-5 group">
+                <a href="#" id="uploadBtn" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <!-- <i class="ri-instance-line mr-3 text-lg"></i> -->
+                    <i class="ri-file-upload-line mr-3 text-lg"></i>
+                    <span class="text-sm">Upload CSV</span>
+                
+                </a>
+            </li>
+
+            <!-- ANALYSIS -->
+            <li class="mb-5 group">
+                <a href="#" id="analysisBtn" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <i class="ri-bubble-chart-line mr-3 text-lg"></i>
+                    <span class="text-sm">Analysis</span>
+                </a>
+            </li>
+
+            <!-- DOWNLOAD CSV -->
+            <li class="mb-5 group">
+                <a href="#" id="downloadBtn" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <i class="ri-download-2-line mr-3 text-lg"></i>
+                    <span class="text-sm">Download CSV</span>
+                </a>
+            </li>
+
+            <!-- SETTINGS -->
+            <li class="mb-5 group">
+                <a href="#" id="settingsBtn" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <i class="ri-settings-2-line mr-3 text-lg"></i>
+                    <span class="text-sm">Settings</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="fixed top-0 left-0 w-full h-full bg-black/50 z-40 md:hidden sidebar-overlay"></div>
+    <!-- end: Sidebar -->
+
+    <!-- start: Main -->
+    <div class="w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-50 min-h-screen transition-all main">
+
+        <div class="tab" id="tab-home">
+            <!-- Top BAR -->
+            <div class="py-2 px-6 bg-white flex items-center shadow-md shadow-black/5 sticky top-0 left-0 z-30"> 
+                <ul class="ml-auto flex items-center">
+                    <li class="mr-1 dropdown">
+                        <!-- SEARCH -->
+                        <button type="button" class="dropdown-toggle text-gray-400 w-8 h-8 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600">
+                            <i class="ri-search-line"></i>
+                        </button>
+                        <div class="dropdown-menu shadow-md shadow-black/5 z-30 hidden max-w-xs w-full bg-white rounded-md border border-gray-100">
+                            <form action="" class="p-4 border-b border-b-gray-100">
+                                <div class="relative w-full">
+                                    <input type="text" class="py-2 pr-4 pl-10 bg-gray-50 w-full outline-none border border-gray-100 rounded-md text-sm focus:border-blue-500" placeholder="Search...">
+                                    <i class="ri-search-line absolute top-1/2 left-4 -translate-y-1/2 text-gray-400"></i>
+                                </div>
+                            </form> 
+                        
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <button type="button" class="dropdown-toggle text-gray-400 w-8 h-8 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600">
+                            <i class="ri-notification-3-line"></i>
+                        </button>
+                        <div class="dropdown-menu shadow-md shadow-black/5 z-30 hidden max-w-xs w-full bg-white rounded-md border border-gray-100">
+                            <div class="flex items-center px-4 pt-4 border-b border-b-gray-100 notification-tab">
+                                <button type="button" data-tab="notification" data-tab-page="notifications" class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1 active">Notifications</button>
+                                <button type="button" data-tab="notification" data-tab-page="messages" class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1">Messages</button>
+                            </div>
+                            <div class="my-2">
+                                <ul class="max-h-64 overflow-y-auto" data-tab-for="notification" data-page="notifications">
+                                    <li>
+                                        <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                            <img src="https://placehold.co/32x32" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                            <div class="ml-2">
+                                                <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                                <div class="text-[11px] text-gray-400">from a user</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                            <img src="https://placehold.co/32x32" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                            <div class="ml-2">
+                                                <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                                <div class="text-[11px] text-gray-400">from a user</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                            <img src="https://placehold.co/32x32" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                            <div class="ml-2">
+                                                <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                                <div class="text-[11px] text-gray-400">from a user</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                            <img src="https://placehold.co/32x32" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                            <div class="ml-2">
+                                                <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                                <div class="text-[11px] text-gray-400">from a user</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                            <img src="https://placehold.co/32x32" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                            <div class="ml-2">
+                                                <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                                <div class="text-[11px] text-gray-400">from a user</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="max-h-64 overflow-y-auto hidden" data-tab-for="notification" data-page="messages">
+                                    <li>
+                                        <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                            <img src="https://placehold.co/32x32" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                            <div class="ml-2">
+                                                <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                                <div class="text-[11px] text-gray-400">Hello there!</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                            <img src="https://placehold.co/32x32" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                            <div class="ml-2">
+                                                <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                                <div class="text-[11px] text-gray-400">Hello there!</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                            <img src="https://placehold.co/32x32" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                            <div class="ml-2">
+                                                <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                                <div class="text-[11px] text-gray-400">Hello there!</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                            <img src="https://placehold.co/32x32" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                            <div class="ml-2">
+                                                <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                                <div class="text-[11px] text-gray-400">Hello there!</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                            <img src="https://placehold.co/32x32" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                            <div class="ml-2">
+                                                <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                                <div class="text-[11px] text-gray-400">Hello there!</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown ml-3">
+                        <button type="button" class="dropdown-toggle flex items-center">
+                            <img src="https://placehold.co/32x32" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                        </button>
+                        <ul class="dropdown-menu shadow-md shadow-black/5 z-30 hidden py-1.5 rounded-md bg-white border border-gray-100 w-full max-w-[140px]">
+                            <li>
+                                <a href="#" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Profile</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                <!-- </ul> -->
+            </div>
+
+            <!-- TOP BANNER -->
+            <div class="p-20">
+                <div class=" relative bg-white rounded-2xl border border-gray-100 p-6 shadow-md flex justify-center overflow-visible h-auto">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-semibold mb-2">Greetings!</h2>
+                        <p class="text-gray-600 mb-2">Welcome to SMART <br>Student Management & Recruitment Tool! 🚀</p>
+                    </div>
+                    <!-- <div class="flex-1 flex justify-end items-center"> -->
+                    <div class="absolute bottom-0 right-0 -pb-4">
+                        <img src="/imgs/teacher-explaining-using-gestures.png" alt="Illustration" class="w-48 h-auto rounded-md ml-0">
+                    </div>
+                </div>
+                <!-- Second Banner -->
+                <div class="mt-6 bg-white rounded-2xl border border-gray-100 p-6 shadow-md flex">
+                    <div class="flex-2">
+                        <h2 class="text-xl font-semibold mb-4">About📝</h2>
+                        <p class="text-gray-600 mb-2">We are thrilled to introduce you to SMART, your all-in-one solution for student
+                        management and recruitment needs. SMART is designed to empower
+                        educational institutions and students alike by providing a comprehensive
+                        platform for tracking academic progress, facilitating career development, and predicting placement opportunities.<br>
+                        With SMART, educational institutions can efficiently manage student data, track
+                        their academic performance, and streamline the recruitment process.<br>
+                        Meanwhile, students can access personalized career guidance, explore job opportunities,
+                        and receive tailored recommendations for enhancing their employability.<br>
+                        Join us on this exciting journey as we revolutionize student management and recruitment with SMART!</p>
+
+                    </div>   
+                </div>
+
+                <div class="flex justify-center items-center pt-4">
+                    <button class="bg-gray-900 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out hover:bg-gray-500 hover:border-gray-500 hover:text-gray-800">Get started</button>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="tab hidden" id="tab-upload">
+            
+            <div class="flex items-center justify-center w-auto">
+                <label for="dropzone-file" class="flex flex-col items-center justify-center w-96 h-96 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                        <svg class="w-8 h-8 mb-4 text-green-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                        </svg>
+                        <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">supported files : .csv, .xlsx</p>
+                    </div>
+                    <input id="dropzone-file" type="file" class="hidden"/>
+                </label>
+            </div> 
+
+        </div>
+
+        <!-- ====== ANALYSIS ======== -->
+        <div class="tab hidden" id="tab-analysis">
+            <div class="banner p-20">
+
+                <div class="relative bg-white rounded-2xl border border-gray-100 p-6 shadow-md flex justify-self-start h-auto">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-semibold mb-2">Marks Prediction</h2>
+                        <p class="text-gray-600 mb-2">predict marks of students based on number of hours they study</p>
+                    </div>
+                </div>
+                
+                <div class="relative bg-red-400 rounded-2xl border border-gray-100 p-6 shadow-md flex justify-self-start h-auto top-4">
+                    <div class="flex-2">
+                        <h2 class="text-2xl font-semibold mb-2">Placement Prediction</h2>
+                        <p class="text-gray-600 mb-2">predict placement status of students based on various factors</p>
+                    </div>
+                </div>
+
+            </div>
+        </div
+
+    </div>
+
+
+
+    
+    <!-- end: Main -->
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+</body>
+</html>
